@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F5F1E8;
+  color: #2C2C2C;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  .gradient-mesh {
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(201, 169, 98, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(26, 58, 58, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(180, 67, 60, 0.08) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-cream-50 px-6 py-2.5 rounded-lg border border-gold-500 
+           hover:bg-primary-600 hover:shadow-lg hover:shadow-gold-500/20 
+           transition-all duration-300 font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-gold-500 text-primary-900 px-6 py-2.5 rounded-lg 
+           hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/30 
+           transition-all duration-300 font-medium;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-gold-500 px-6 py-2.5 rounded-lg border border-gold-500 
+           hover:bg-gold-500/10 hover:shadow-md transition-all duration-300 font-medium;
+  }
+  
+  .card-elegant {
+    @apply bg-cream-50 rounded-xl border border-cream-300 
+           hover:border-gold-400 hover:shadow-xl hover:shadow-gold-500/10 
+           hover:-translate-y-1 transition-all duration-500;
+  }
+  
+  .card-dark {
+    @apply bg-primary-800/60 backdrop-blur-sm rounded-xl border border-primary-700 
+           hover:border-gold-500/50 hover:shadow-lg hover:shadow-gold-500/5 
+           transition-all duration-300;
+  }
+  
+  .input-elegant {
+    @apply w-full px-4 py-3 rounded-lg border border-cream-400 bg-cream-50 
+           focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 
+           outline-none transition-all duration-200;
+  }
+  
+  .input-dark {
+    @apply w-full px-4 py-3 rounded-lg border border-primary-700 bg-primary-800 text-cream-200 
+           focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 
+           outline-none transition-all duration-200 placeholder-cream-600;
+  }
+  
+  .gold-divider {
+    @apply h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-60;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E4DB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B89A5A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A962;
+}
+
+/* 深色滚动条 */
+.dark ::-webkit-scrollbar-track {
+  background: #102323;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #558080;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #729696;
+}
+
+/* 动画关键帧 */
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(180, 67, 60, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(180, 67, 60, 0);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
