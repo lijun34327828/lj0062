@@ -13,6 +13,7 @@ import AboutPage from "@/pages/visitor/AboutPage";
 import BookingPage from "@/pages/visitor/BookingPage";
 import BookingConfirmPage from "@/pages/visitor/BookingConfirmPage";
 import BookingSuccessPage from "@/pages/visitor/BookingSuccessPage";
+import MyBookingsPage from "@/pages/visitor/MyBookingsPage";
 
 import LoginPage from "@/pages/LoginPage";
 import DashboardPage from "@/pages/admin/DashboardPage";
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="booking" element={<BookingPage />} />
           <Route path="booking/confirm" element={<BookingConfirmPage />} />
           <Route path="booking/success" element={<BookingSuccessPage />} />
+          <Route path="my-bookings" element={<MyBookingsPage />} />
         </Route>
 
         <Route path="/" element={<ProtectedRoute roles={['admin', 'restorer', 'security']} />}>

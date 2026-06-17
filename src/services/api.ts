@@ -95,6 +95,13 @@ export const bookingsApi = {
     }),
   getList: (): Promise<ApiResponse<Booking[]>> =>
     request<Booking[]>('/bookings'),
+  getMyBookings: (phone: string): Promise<ApiResponse<Booking[]>> =>
+    request<Booking[]>(`/bookings/my?phone=${encodeURIComponent(phone)}`),
+  cancel: (id: number, phone: string): Promise<ApiResponse<Booking>> =>
+    request<Booking>(`/bookings/${id}/cancel`, {
+      method: 'PUT',
+      body: JSON.stringify({ phone }),
+    }),
 };
 
 export const collectionsApi = {

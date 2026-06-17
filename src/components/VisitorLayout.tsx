@@ -9,6 +9,7 @@ const navItems = [
   { label: '展厅导览', path: '/visitor/exhibitions' },
   { label: '藏品展示', path: '/visitor/collections' },
   { label: '参观指南', path: '/visitor/guide' },
+  { label: '我的预约', path: '/visitor/my-bookings' },
   { label: '关于我们', path: '/visitor/about' },
 ];
 
@@ -182,6 +183,11 @@ export default function VisitorLayout() {
                 <li>
                   <Link to="/visitor/booking" className="hover:text-gold-400 transition-colors">
                     在线预约
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/visitor/my-bookings" className="hover:text-gold-400 transition-colors">
+                    我的预约
                   </Link>
                 </li>
                 <li>
