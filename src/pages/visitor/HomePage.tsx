@@ -10,17 +10,17 @@ const heroSlides = [
   {
     title: '穿越千年文明',
     subtitle: '探索历史的瑰宝，感受文化的魅力',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20chinese%20museum%20grand%20hall%20with%20golden%20light&image_size=landscape_16_9',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20chinese%20museum%20grand%20hall%20with%20golden%20sunlight%20streaming%20through%20windows%2C%20columns%2C%20traditional%20architecture&image_size=landscape_16_9',
   },
   {
     title: '珍藏历史记忆',
     subtitle: '数万件珍贵藏品，讲述中华文明的故事',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=museum%20exhibition%20hall%20with%20ancient%20artifacts%20spotlight&image_size=landscape_16_9',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=museum%20exhibition%20hall%20with%20ancient%20chinese%20artifacts%20in%20glass%20display%20cases%2C%20spotlight%20lighting%2C%20elegant%20interior&image_size=landscape_16_9',
   },
   {
     title: '沉浸式文化体验',
     subtitle: '专业讲解，带您深入了解每一件展品的故事',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=museum%20guide%20explaining%20ancient%20treasures%20to%20visitors&image_size=landscape_16_9',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=museum%20guide%20in%20traditional%20chinese%20attire%20explaining%20ancient%20treasures%20to%20a%20group%20of%20visitors%2C%20warm%20atmosphere&image_size=landscape_16_9',
   },
 ];
 
@@ -77,6 +77,14 @@ export default function HomePage() {
   const handleExhibitionClick = (exhibition: Exhibition) => {
     selectExhibition(exhibition);
     navigate('/visitor/booking');
+  };
+
+  const handleExhibitionsClick = () => {
+    navigate('/visitor/exhibitions');
+  };
+
+  const handleCollectionsClick = () => {
+    navigate('/visitor/collections');
   };
 
   return (
@@ -148,7 +156,14 @@ export default function HomePage() {
             <h2 className="text-4xl font-serif font-bold text-primary-800 mb-4">
               精品展厅
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto" />
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mb-4" />
+            <button
+              onClick={handleExhibitionsClick}
+              className="text-gold-600 hover:text-gold-700 font-medium inline-flex items-center gap-1 group"
+            >
+              查看全部展厅
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -201,7 +216,14 @@ export default function HomePage() {
               热门藏品
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mb-4" />
-            <p className="text-cream-300">探索博物馆最受瞩目的珍贵文物</p>
+            <p className="text-cream-300 mb-4">探索博物馆最受瞩目的珍贵文物</p>
+            <button
+              onClick={handleCollectionsClick}
+              className="text-gold-400 hover:text-gold-300 font-medium inline-flex items-center gap-1 group"
+            >
+              浏览全部藏品
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
           <div className="relative">

@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { label: '首页', path: '/' },
-  { label: '展厅导览', path: '/exhibitions' },
-  { label: '藏品展示', path: '/collections' },
-  { label: '参观指南', path: '/guide' },
-  { label: '关于我们', path: '/about' },
+  { label: '首页', path: '/visitor' },
+  { label: '展厅导览', path: '/visitor/exhibitions' },
+  { label: '藏品展示', path: '/visitor/collections' },
+  { label: '参观指南', path: '/visitor/guide' },
+  { label: '关于我们', path: '/visitor/about' },
 ];
 
 export default function VisitorLayout() {
@@ -51,12 +51,12 @@ export default function VisitorLayout() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <Link to="/booking">
-                <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
-                  <Calendar className="w-4 h-4" />
-                  在线预约
-                </Button>
-              </Link>
+              <Link to="/visitor/booking">
+              <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
+                <Calendar className="w-4 h-4" />
+                在线预约
+              </Button>
+            </Link>
               <button
                 className="lg:hidden p-2 text-cream-200 hover:text-gold-400 transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -88,7 +88,7 @@ export default function VisitorLayout() {
               </Link>
             ))}
             <div className="pt-2 border-t border-primary-600">
-              <Link to="/booking" className="block" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/visitor/booking" className="block" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="secondary" size="sm" fullWidth>
                   <Calendar className="w-4 h-4" />
                   在线预约
@@ -170,22 +170,22 @@ export default function VisitorLayout() {
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link to="/exhibitions" className="hover:text-gold-400 transition-colors">
+                  <Link to="/visitor/exhibitions" className="hover:text-gold-400 transition-colors">
                     当前展览
                   </Link>
                 </li>
                 <li>
-                  <Link to="/collections" className="hover:text-gold-400 transition-colors">
+                  <Link to="/visitor/collections" className="hover:text-gold-400 transition-colors">
                     精品馆藏
                   </Link>
                 </li>
                 <li>
-                  <Link to="/booking" className="hover:text-gold-400 transition-colors">
+                  <Link to="/visitor/booking" className="hover:text-gold-400 transition-colors">
                     在线预约
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:text-gold-400 transition-colors">
+                  <Link to="/visitor/about" className="hover:text-gold-400 transition-colors">
                     了解我们
                   </Link>
                 </li>

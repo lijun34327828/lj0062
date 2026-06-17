@@ -6,6 +6,10 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import MaintenanceAlertModal from "@/components/MaintenanceAlertModal";
 
 import HomePage from "@/pages/visitor/HomePage";
+import ExhibitionsPage from "@/pages/visitor/ExhibitionsPage";
+import CollectionsPage from "@/pages/visitor/CollectionsPage";
+import GuidePage from "@/pages/visitor/GuidePage";
+import AboutPage from "@/pages/visitor/AboutPage";
 import BookingPage from "@/pages/visitor/BookingPage";
 import BookingConfirmPage from "@/pages/visitor/BookingConfirmPage";
 import BookingSuccessPage from "@/pages/visitor/BookingSuccessPage";
@@ -36,6 +40,10 @@ export default function App() {
 
         <Route path="/visitor" element={<VisitorLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="exhibitions" element={<ExhibitionsPage />} />
+          <Route path="collections" element={<CollectionsPage />} />
+          <Route path="guide" element={<GuidePage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="booking" element={<BookingPage />} />
           <Route path="booking/confirm" element={<BookingConfirmPage />} />
           <Route path="booking/success" element={<BookingSuccessPage />} />
